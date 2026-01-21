@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ManagersManager : MonoBehaviour
 {
-    [SerializeField]
-    private Manager[] managers;
+    [SerializeField] private Manager[] managers;
 
     void Awake()
     {
@@ -29,6 +28,5 @@ public class ManagersManager : MonoBehaviour
         {
             manager.Disable();
         }
-        
     }
 }

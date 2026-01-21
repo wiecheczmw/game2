@@ -321,7 +321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256328577}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3826835, y: 0.000000010317181, z: -0.0000000042735167, w: 0.9238795}
+  m_LocalRotation: {x: 0.3582638, y: -7.259046e-15, z: 2.8735862e-15, w: 0.9336204}
   m_LocalPosition: {x: 0, y: 11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -349,8 +349,8 @@ MonoBehaviour:
       Enabled: 0
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
-  CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 0, z: 0}
+  CenterOnActivate: 0
+  TargetOffset: {x: 0, y: 1, z: 0}
   Damping: {x: 0, y: 0}
   Lookahead:
     Enabled: 0
@@ -370,10 +370,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   target: {fileID: 256328579}
-  startposition: {x: 0, y: 10, z: -10}
-  endposition: {x: 0, y: 4, z: -10}
-  blend: 0
-  zoomSpeed: 0.5
+  startY: 25
+  startZ: -10
+  endY: 3
+  endZ: -7
+  zoomSpeed: 5
+  orbitSpeed: 120
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3826835, y: 0.000000010317183, z: -0.000000004273517, w: 0.92387956}
+  m_LocalRotation: {x: 0.3582638, y: -7.219433e-15, z: 2.7703566e-15, w: 0.93362045}
   m_LocalPosition: {x: 0, y: 11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -704,6 +706,7 @@ MonoBehaviour:
   movement: {fileID: 1740240923}
   interaction: {fileID: 1966256099}
   camerazoom: {fileID: 2141739260}
+  cameraorbite: {fileID: 1770620520}
 --- !u!4 &648818423
 Transform:
   m_ObjectHideFlags: 0
@@ -1031,7 +1034,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1097,6 +1100,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
+--- !u!114 &1770620520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/CameraOrbite
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_ActionId: 17b39ba0-5dee-45f1-b574-1a15bb2ccc4a
 --- !u!114 &1966256099
 MonoBehaviour:
   m_ObjectHideFlags: 0
