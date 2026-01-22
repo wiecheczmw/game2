@@ -156,6 +156,7 @@ public class CameraController : MonoBehaviour
 
         target.FollowOffset = offset;
     }
+    
 
     void OnEnable()
     {

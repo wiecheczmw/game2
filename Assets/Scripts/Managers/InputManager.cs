@@ -7,14 +7,14 @@ public class InputManager : Manager
 {
     [SerializeField] private InputActionAsset inputActionAsset;
 
-    [SerializeField] InputActionReference movement;
+    [SerializeField] InputActionReference clickmove;
 
     [SerializeField] InputActionReference interaction;
 
     [SerializeField] InputActionReference camerazoom;
     [SerializeField] InputActionReference cameraorbite;
 
-    public static event Action<Vector2> OnMove;
+    public static event Action OnMove;
     public static event Action OnInteract;
     public static event Action<float> OnZoom;
     public static event Action<float> OnOrbit;
@@ -26,8 +26,7 @@ public class InputManager : Manager
     public override void Enable()
     {
         inputActionAsset.Enable();
-        movement.action.performed += StartMove;
-        movement.action.canceled += StopMove;
+        clickmove.action.performed += ClickMove;
         interaction.action.performed += Interact;
         camerazoom.action.performed += StartZoom;
         camerazoom.action.canceled += StopZoom;
@@ -38,8 +37,7 @@ public class InputManager : Manager
     public override void Disable()
     {
         inputActionAsset.Disable();
-        movement.action.performed -= StartMove;
-        movement.action.canceled -= StopMove;
+        clickmove.action.performed -= ClickMove;
         interaction.action.performed -= Interact;
         camerazoom.action.performed -= StartZoom;
         camerazoom.action.canceled -= StopZoom;
@@ -47,11 +45,9 @@ public class InputManager : Manager
         cameraorbite.action.canceled -= StopOrbit;
     }
 
-    private void StartMove(InputAction.CallbackContext context)
+    private void ClickMove(InputAction.CallbackContext context)
     {
-        var direction = context.ReadValue<Vector2>();
-
-        OnMove?.Invoke(direction);
+        OnMove?.Invoke();
     }
 
     private void StartZoom(InputAction.CallbackContext context)
@@ -64,13 +60,6 @@ public class InputManager : Manager
     private void StopZoom(InputAction.CallbackContext context)
     {
         OnZoom?.Invoke(0);
-    }
-
-    private void StopMove(InputAction.CallbackContext context)
-    {
-        var direction = Vector2.zero;
-
-        OnMove?.Invoke(direction);
     }
 
     private void Interact(InputAction.CallbackContext context)

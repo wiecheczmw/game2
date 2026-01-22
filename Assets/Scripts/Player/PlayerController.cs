@@ -1,43 +1,53 @@
 using System;
+using Pathfinding;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private CharacterController controller;
-
-    private Vector3 movementdirection;
-    private float rotationSpeed = 10f;
+    [SerializeField] RichAI richAI;
+    
 
     private void OnEnable()
     {
-        InputManager.OnMove += Move;
+        InputManager.OnMove += clickmove;
         InputManager.OnInteract += Interact;
     }
 
     private void OnDisable()
     {
-        InputManager.OnMove -= Move;
+        InputManager.OnMove -= clickmove;
         InputManager.OnInteract -= Interact;
     }
-
+    // public bool IsPointerOverUI()
+    // {
+    //     var panel = UnityEngine.UIElements.RuntimePanelUtils
+    //         .ScreenToPanel(UIDocument.panel, Input.mousePosition);
+    //
+    //     return panel != null;
+    // }
+    private void clickmove()
+    {
+        
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePosition), out RaycastHit hit))
+        {
+           // richAI.position.Set(hit.point.x, hit.point.y, hit.point.z);
+            richAI.destination = hit.point;
+        }
+        
+    }
+    
+    
     private void Update()
     {
-        if (movementdirection != Vector3.zero)
-        {
-            // Oblicz docelową rotację na podstawie wektora ruchu
-            Quaternion targetRotation = Quaternion.LookRotation(movementdirection);
-
-            // Płynnie obróć postać w stronę docelową (Slerp)
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        }
-
-        controller.SimpleMove(movementdirection);
+      
     }
 
     private void Move(Vector2 direction)
     {
-        movementdirection = new Vector3(direction.x, 0, direction.y);
+    
     }
 
 

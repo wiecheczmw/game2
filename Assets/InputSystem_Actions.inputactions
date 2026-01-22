@@ -104,6 +104,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ClickMove",
+                    "type": "Button",
+                    "id": "d5a91f83-59aa-4fb2-b7c0-45a65b644848",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -546,6 +555,17 @@
                     "action": "CameraOrbite",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e68d1e1e-cf8f-4420-8b4d-950bea3a4494",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ClickMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
