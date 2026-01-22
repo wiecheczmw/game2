@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     // }
     private void clickmove()
     {
+     
         
         Vector2 mousePosition = Mouse.current.position.ReadValue();
         if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePosition), out RaycastHit hit))

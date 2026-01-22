@@ -15,6 +15,6 @@ public class testUI : MonoBehaviour
 
     private void ButtonOnclicked()
     {
-       Debug.Log("ButtonOnclicked");
+       Debug.Log("Button   clicked");
     }
 }
