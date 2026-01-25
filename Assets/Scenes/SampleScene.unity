@@ -444,7 +444,9 @@ GameObject:
   m_Component:
   - component: {fileID: 364044766}
   - component: {fileID: 364044765}
-  - component: {fileID: 364044767}
+  - component: {fileID: 364044768}
+  - component: {fileID: 364044769}
+  - component: {fileID: 364044770}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -466,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
   m_PanelSettings: {fileID: 11400000, guid: 7d89dff0d38314a89bd9e79f9d058c21, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: f2bb65cedbbc74947929416bf25766bd, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: 3a844274787024e2e9ed9038512873d4, type: 3}
   m_SortingOrder: 0
   m_Position: 0
   m_WorldSpaceSizeMode: 1
@@ -490,7 +492,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &364044767
+--- !u!114 &364044768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -499,9 +501,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 364044764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82f147daf94f544d99be4ca540d0bf70, type: 3}
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::testUI
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
+  m_FirstSelected: {fileID: 364044764}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &364044769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364044764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.UI.InputSystemUIInputModule
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
+--- !u!114 &364044770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364044764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36f89e8fc5694b29a8aabe407ba605c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  uiDocument: {fileID: 364044765}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9b89cbed2364d178b44d03cf3ebcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
+  uiDocument: {fileID: 364044765}
   inputActionAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   clickmove: {fileID: 1498186525}
   interaction: {fileID: 1966256099}
@@ -964,7 +1014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: AstarPathfindingProject::AstarPath
   version: 1073741824
   data:
-    dataString: UEsDBBQAAAgIAAAIIezIR1diTgIAANkEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGVVMlu2zAQ/RVD56bwEmfpsbabHuKksAw0SNHDmBpJhCnSJSk7TpB/zwxFyUqXQ0+E38yb5c2TXxJRggXh0a4gk7VLPg2GH6cfBokw2pvaLuFpYa2xhI8ZRaVS+Ywhbcx5B1Bb2Cj8irIofUxrwZmS1aYrWcFTqsyOyZNh83uRFXiLuvAlMwMo9QoLaXRsMyEMM+mNXUuFERyNrwj2EXj4A3nskNoh83gvb2skZIf2Fo5olyaTuRTgqReHf/xsgmu0FqT+d04mK9SOEIryMMm8BSbzhOIbENvCmlpnawt7tA42Ukl/5NTvURjOs6hwD9rfWNiVaW1zENiVNHfGr/BXLW3IFUYpFDxGit5LXfA0Lz24JYaxHVN25dFJ4VKBmiO6Vuo3dDw/4SqsC27LdQfJHlTNrLPR4JV1hSLGggIWHBmGdJ5Rf5lxw07eLrZEVwbdc1DuXSQq/BfO2mL/VL5JbKxVwW5uDtpBtVMkwBcybbDlJMrDc6zaQnP0IBW7gKJGzxqdupF4ad7LGh9u2yz9xE4l9BjfZ37D/rmxArPPfFM3Q009/ocRTRvzxy1hGgnjhuFKc+AB72tP++FJBQ7c0XlnRuvm2H1VW1o00ImmESw6n9Ijynutjg+PPRpqtuEd7CvizurgqRO3qGX23gjJ+ejiang+vbzCEVwP8/wMNpcizyEfbS4meA3TJGwhtfQS1Deqr3wrC33zvWtrqELFFQo61yDYnw2bWTjcyOfK9BwgdW5SQa7Q902Nbm06MygSNluEP4feZ5G8vCavb1BLAwQUAAAICAAACCHsMvlyA24AAAB5AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDVM9Ez1VFQSi9KLMgoBgoYgjilmSkgdrSSiaGZhYGJqblFqmGipUFamm5iknlyWlpimmGSmXGqZaKpUixQfUllQapfYm4qRE9AYklGWmZeSmZeul5QanJicYk7yHCl2FoAUEsBAi0AFAAACAgAAAgh7MhHV2JOAgAA2QQAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7DL5cgNuAAAAeQAAAAkAJAAAAAAAAAAAAAAAmwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABUAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAIIewKUr21UAIAANsEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGVVE1v2zAM/SuBz+uQj6YfOy7JukPTDnGAFR12YGTaFiJLmSQnTYv+95Ky7Lj7OOwk+JGPIh+f/JKIEiwIj3YFmaxd8mkw/Dj9MEiE0d7UdglPC2uNJXzMKCqVymcMaWPOO4DawkbhV5RF6WNaC86UrDZdyQqeUmV2TJ4Mm+9FVuAt6sKXzAyg1CsspNHxmglhmElv7FoqjOBofEWwj8DDH8hjh9QOmcdzeVsjITu0t3BEuzSZzKUAT3dx+MfPJrhGa0Hqf+dkskLtCKEoN5PMW2AyTyi+AbEtrKl1trawR+tgI5X0R079HoXhPIsK96D9jYVdmdY2B4FdSXNn/Ap/1dKGXGGUQsFtpOi91AV389KDW2Jo2zFlVx6dFC4VqDmia6V+Q8fzE67CuOC2XHeQ7EHVzDobDV5ZVyhiLChgwZFhSOcZ3S8zvrCTt4st0ZVB9xyUexeJCv+Fs7bYX5VvEhtrVbCbm4N2UO0UCfCFTBtsOYnycB+rttAcPUjFLqCo0bNGp64lHprnssaH3TZDP7FTCT3G85nPMH9urMDsM+/UzVDTHf/DiKaN+eNhy5hGBiGB40pz4Bbva08T4kkHDtzRgmdG62bdfV1bWrTQiaYRLDqf0iHKe62OD489Gmo24h3sK+LO6uCqE7eoZfbeCsn56OJqeD69vMIRXA/z/Aw2lyLPIR9tLiZ4DdMkTCG19BLUN6qvfCsMvfrevjVUoeIKBS1sEB4AWzazcLiRz5XpeUDq3KSCfKHvmxrd2LRoUCRttgi/h97DSF5ek9c3UEsDBBQAAAgIAAAIIewy+XIDbgAAAHkAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNUz0TPVUVBKL0osyCgGChiCOKWZKSB2tJKJoZmFgYmpuUWqYaKlQVqabmKSeXJaWmKaYZKZcaploqlSLFB9SWVBql9ibipET0BiSUZaZl5KZl66XlBqcmJxiTvIcKXYWgBQSwECLQAUAAAICAAACCHsClK9tVACAADbBAAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsMvlyA24AAAB5AAAACQAkAAAAAAAAAAAAAACdAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAFYDAAAAAA==
     file_cachedStartup: {fileID: 0}
     cacheStartup: 0
   showNavGraphs: 1

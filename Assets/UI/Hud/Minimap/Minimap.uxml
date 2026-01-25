@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+
+    <ui:VisualElement name="MinimapComponent" style="
+        width: 120px;
+        height: 120px;
+        background-color: rgba(0, 0, 255, 0.5);
+        border-width: 2px;
+        border-color: white;
+        justify-content: center;
+        align-items: center;">
+        
+        <ui:Label text="MAP" style="color: white; -unity-font-style: bold;" />
+        
+    </ui:VisualElement>
+
+</ui:UXML>

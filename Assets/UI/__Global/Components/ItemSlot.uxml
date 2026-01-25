@@ -1,0 +1,26 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    
+    <Style src="../_Global/Styles/Common.uss" />
+    
+    <ui:Template name="ItemSlot" src="../_Global/Components/ItemSlot.uxml" />
+
+    <ui:VisualElement name="InventoryContainer" class="ui-window" style="width: 300px; height: 400px; left: 100px; top: 100px;">
+        
+        <ui:VisualElement name="Header" class="window-header">
+            <ui:Label text="Ekwipunek" class="window-title" />
+            <ui:Button text="X" class="close-button" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="Grid" style="flex-direction: row; flex-wrap: wrap; padding: 10px; justify-content: center;">
+            
+            <ui:Instance template="ItemSlot" name="Slot01" />
+            <ui:Instance template="ItemSlot" name="Slot02" />
+            <ui:Instance template="ItemSlot" name="Slot03" />
+            <ui:Instance template="ItemSlot" name="Slot04" />
+            <ui:Instance template="ItemSlot" name="Slot05" />
+            <ui:Instance template="ItemSlot" name="Slot06" />
+            
+        </ui:VisualElement>
+    </ui:VisualElement>
+
+</ui:UXML>

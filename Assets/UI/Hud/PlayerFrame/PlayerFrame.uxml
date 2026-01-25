@@ -1,0 +1,46 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="PlayerFrame.uss" />
+
+    <ui:VisualElement name="PlayerFrame" class="player-frame" picking-mode="Position">
+        
+        <ui:VisualElement class="avatar-container">
+            <ui:VisualElement class="avatar-image" />
+            <ui:VisualElement class="level-badge">
+                <ui:Label name="LevelText" text="45" class="level-text" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement class="stats-container">
+            <ui:Label name="PlayerName" text="Dragonslayer" class="player-name" />
+            <ui:Label text="Strażnicy Królestwa" class="guild-name" />
+
+            <ui:VisualElement class="stat-row">
+                <ui:Label text="HP" class="stat-label label-hp" />
+                <ui:VisualElement class="bar-background">
+                    <ui:VisualElement name="BarHP" class="bar-fill fill-hp" style="width: 80%;" />
+                    
+                    <ui:Label name="ValHP" text="80/100" class="bar-value-text" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="stat-row">
+                <ui:Label text="SP" class="stat-label label-sp" />
+                <ui:VisualElement class="bar-background">
+                    <ui:VisualElement name="BarSP" class="bar-fill fill-sp" style="width: 60%;" />
+                    
+                    <ui:Label name="ValSP" text="60/100" class="bar-value-text" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="stat-row">
+                <ui:Label text="EXP" class="stat-label label-exp" />
+                <ui:VisualElement class="bar-background">
+                    <ui:VisualElement name="BarEXP" class="bar-fill fill-exp" style="width: 70%;" />
+                    
+                    <ui:Label name="ValEXP" text="70%" class="bar-value-text" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
