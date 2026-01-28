@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 1818478540685745552}
   - component: {fileID: 6098952949185612749}
   - component: {fileID: 4288178725834285865}
+  - component: {fileID: 2796536950442008688}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -339,7 +340,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  endReachedDistance: 0.2
+  endReachedDistance: 0.6
   whenCloseToDestination: 0
   rvoDensityBehavior:
     enabled: 1
@@ -405,3 +406,17 @@ MonoBehaviour:
   wallAvoidFalloff: 1
   priority: 0.5
   debug: 0
+--- !u!114 &2796536950442008688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6939295588297990906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb394c9145fb842dca8d1285a9bb6112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStatistics
+  movementspeed:
+    baseValue: 10

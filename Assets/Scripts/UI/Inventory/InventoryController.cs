@@ -14,9 +14,12 @@ public class InventoryController
     public InventoryController(VisualElement root)
     {
         var inventoryInstance = root.Q<VisualElement>("InventoryInstance");
+        Debug.Log(inventoryInstance);
         if (inventoryInstance != null)
         {
+           
             _inventoryWindow = inventoryInstance.Q<VisualElement>("InventoryWindow");
+            Debug.Log(_inventoryWindow);
             _closeButton = inventoryInstance.Q<Button>("CloseButton");
 
             // 1. Rejestracja przycisku zamknij

@@ -1,16 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-
-    <ui:VisualElement name="ActionBarComponent" style="
-        width: 400px;
-        height: 60px;
-        background-color: rgba(0, 255, 0, 0.5);
-        border-width: 2px;
-        border-color: white;
-        justify-content: center;
-        align-items: center;">
-        
-        <ui:Label text="ACTION BAR" style="color: white; -unity-font-style: bold;" />
-        
+    <ui:VisualElement name="ActionBarComponent" style="width: 400px; height: 60px; background-color: rgba(0, 255, 0, 0.5); border-width: 2px; border-color: white; justify-content: center; align-items: center;">
+        <ui:Label text="ACTION BAR" style="color: white; -unity-font-style: bold;"/>
+        <ui:Button text="Button" name="button1"/>
     </ui:VisualElement>
-
 </ui:UXML>
