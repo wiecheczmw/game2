@@ -446,8 +446,11 @@ GameObject:
   - component: {fileID: 364044765}
   - component: {fileID: 364044768}
   - component: {fileID: 364044769}
-  - component: {fileID: 364044770}
   - component: {fileID: 364044771}
+  - component: {fileID: 364044772}
+  - component: {fileID: 364044773}
+  - component: {fileID: 364044774}
+  - component: {fileID: 364044775}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -539,19 +542,6 @@ MonoBehaviour:
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
---- !u!114 &364044770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364044764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36f89e8fc5694b29a8aabe407ba605c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  uiDocument: {fileID: 364044765}
 --- !u!114 &364044771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,6 +554,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e2bc277eb76404286e1fd0554789ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActionBarController
+  uiDocument: {fileID: 364044765}
+--- !u!114 &364044772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364044764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935392b4085cf457184911de664ce49c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInfoController
+  uiDocument: {fileID: 364044765}
+--- !u!114 &364044773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364044764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7bc918f6b8349068bad2f9b4dd0229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFrameController
+  uiDocument: {fileID: 364044765}
+--- !u!114 &364044774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364044764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a8ca57a9a0a477aa06406bbe615c66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MinimapController
+  uiDocument: {fileID: 364044765}
+--- !u!114 &364044775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364044764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4833259ee8546ef80126993b1e1118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryController
   uiDocument: {fileID: 364044765}
 --- !u!1 &410087039
 GameObject:

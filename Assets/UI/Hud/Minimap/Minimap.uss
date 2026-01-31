@@ -1,1 +1,33 @@
-VisualElement {}
+/* Główny kontener minimapy (układ wertykalny, centrowanie) */
+.minimap-container {
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+/* Okrągła ramka mapy */
+.minimap-frame {
+    width: 150px;
+    height: 150px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    /* border-radius równy połowie szerokości/wysokości tworzy idealne koło */
+    border-radius: 75px;
+    border-color: white;
+    border-width: 2px;
+}
+
+/* Tekst koordynatów pod mapą */
+.coords-text {
+    margin-top: 5px;
+
+    color: rgba(255, 255, 255, 0.6); /* Lekko przezroczysty biały */
+    font-size: 10px;
+
+    -unity-font-style: bold;
+    -unity-text-align: upper-center;
+
+    /* Cień tekstu dla lepszej czytelności */
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
+}

@@ -1,8 +1,13 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class InventoryController
+public class InventoryController : MonoBehaviour
 {
+    
+    
+    [SerializeField] private UIDocument uiDocument;
+
+
     private VisualElement _inventoryWindow;
     private Button _closeButton;
 
@@ -11,8 +16,10 @@ public class InventoryController
     private Vector2 _startMousePosition;
     private Vector2 _startWindowPosition;
 
-    public InventoryController(VisualElement root)
+    private void Awake()
     {
+        var root = uiDocument.rootVisualElement;
+        
         var inventoryInstance = root.Q<VisualElement>("InventoryInstance");
         Debug.Log(inventoryInstance);
         if (inventoryInstance != null)
@@ -97,16 +104,6 @@ public class InventoryController
 
     // --- LOGIKA OTWIERANIA/ZAMYKANIA (Bez zmian) ---
 
-    public void OpenInventory()
-    {
-        if (_inventoryWindow != null)
-        {
-            _inventoryWindow.style.display = DisplayStyle.Flex;
-            // Opcjonalnie: Przesuń na wierzch (jeśli masz więcej okien)
-            _inventoryWindow.BringToFront(); 
-        }
-    }
-
     public void CloseInventory()
     {
         if (_inventoryWindow != null)
@@ -115,12 +112,12 @@ public class InventoryController
         }
     }
 
-    public void ToggleInventory()
-    {
-        if (_inventoryWindow == null) return;
-        bool isVisible = _inventoryWindow.style.display == DisplayStyle.Flex;
-        
-        if (isVisible) CloseInventory();
-        else OpenInventory();
-    }
+    // public void ToggleInventory()
+    // {
+    //     if (_inventoryWindow == null) return;
+    //     bool isVisible = _inventoryWindow.style.display == DisplayStyle.Flex;
+    //     
+    //     if (isVisible) CloseInventory();
+    //     else OpenInventory();
+    // }
 }

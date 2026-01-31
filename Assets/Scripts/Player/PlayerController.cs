@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] RichAI richAI;
-    
+    // [SerializeField] RichAI richAI;
+    [SerializeField] FollowerEntity followerEntity;
 
     private void OnEnable()
     {
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePosition), out RaycastHit hit))
         {
            // richAI.position.Set(hit.point.x, hit.point.y, hit.point.z);
-            richAI.destination = hit.point;
+           followerEntity.destination = hit.point;
         }
         
     }

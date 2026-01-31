@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    
+    <ui:Style src="PlayerInfo.uss" />
+
+    <ui:VisualElement name="PlayerInfoWindow" class="PlayerInfo-window" picking-mode="Position">
+        
+        <ui:Label text="Player Info" class="PlayerInfo-header" />
+
+        <ui:Button name="CloseButton" text="X" class="PlayerInfo-close-btn" />
+
+    </ui:VisualElement>
+
+</ui:UXML>

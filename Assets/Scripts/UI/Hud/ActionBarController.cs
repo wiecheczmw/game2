@@ -15,6 +15,6 @@ public class ActionBarController : MonoBehaviour
 
     private void addtestmovespeed()
     {
-        FindAnyObjectByType<CharacterStatistics>(FindObjectsInactive.Exclude).MovementSpeed.Addpercentmodifier(10);
+        FindAnyObjectByType<CharacterStatistics>(FindObjectsInactive.Exclude).MovementSpeed.Addpercentmodifier(1000);
     }
 }

@@ -4,33 +4,39 @@
     <ui:Template name="Minimap" src="project://database/Assets/UI/Hud/Minimap/Minimap.uxml" />
     <ui:Template name="ActionBar" src="project://database/Assets/UI/Hud/ActionBar/ActionBar.uxml" />
     <ui:Template name="Inventory" src="project://database/Assets/UI/Inventory/Inventory.uxml" />
+    <ui:Template name="PlayerInfo" src="project://database/Assets/UI/PlayerInfo/PlayerInfo.uxml" />
     
-    <ui:VisualElement name="Root" style="width: 100%; height: 100%;" picking-mode="Ignore">
-
+    <ui:VisualElement name="PlayerFrame_Layer" picking-mode="Ignore" style="position: absolute; width: 100%; height: 100%;">
         <ui:Instance template="PlayerFrame" name="PlayerInstance" style="
-            position: absolute;
-            top: 20px;
-            left: 20px;" 
+        position: absolute;
+        top: 20px;
+        left: 20px;" 
         />
-
+    </ui:VisualElement>
+    
+    
+    <ui:VisualElement name="Minimap_Layer" picking-mode="Ignore" style="position: absolute; width: 100%; height: 100%;">
         <ui:Instance template="Minimap" name="MinimapInstance" style="
             position: absolute;
             top: 20px;
             right: 20px;" 
         />
-
+    </ui:VisualElement>
+    
+    <ui:VisualElement name="ActionBar_Layer" picking-mode="Ignore" style="position: absolute; width: 100%; height: 100%;">
         <ui:Instance template="ActionBar" name="ActionBarInstance" style="
             position: absolute;
             bottom: 20px;
             align-self: center;" 
         />
-
     </ui:VisualElement>
     
-    <ui:VisualElement name="Windows_Layer" picking-mode="Ignore" style="position: absolute; width: 100%; height: 100%; justify-content: center;">
-            
+    <ui:VisualElement name="Windows_Layer" picking-mode="Ignore" style="position: absolute; width: 100%; height: 100%; justify-content: center;">     
         <ui:Instance template="Inventory" name="InventoryInstance" />
-            
+    </ui:VisualElement>
+    
+    <ui:VisualElement name="PlayerInfo" picking-mode="Ignore" style="position: absolute; width: 100%; height: 100%; justify-content: center;">     
+        <ui:Instance template="PlayerInfo" name="PlayerInfoInstance" />
     </ui:VisualElement>
 
 </ui:UXML>

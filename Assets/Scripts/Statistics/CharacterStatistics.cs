@@ -13,7 +13,8 @@ public class CharacterStatistics : MonoBehaviour
     
     private void Start()
     {
-        GetComponent<RichAI>().maxSpeed = movementspeed.Value;
+        // GetComponent<RichAI>().maxSpeed = movementspeed.Value;
+        GetComponent<FollowerEntity>().maxSpeed = movementspeed.Value;
         
     }
 
@@ -29,7 +30,8 @@ public class CharacterStatistics : MonoBehaviour
 
     private void setmovementspeed()
     {
-        GetComponent<RichAI>().maxSpeed = movementspeed.Value;
+        //GetComponent<RichAI>().maxSpeed = movementspeed.Value;
+        GetComponent<FollowerEntity>().maxSpeed = movementspeed.Value;
     }
     
     

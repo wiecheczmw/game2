@@ -1,18 +1,12 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     
-    <ui:VisualElement name="MinimapContainer" style="align-items: center; justify-content: flex-start; flex-direction: column;">
+    <ui:Style src="Minimap.uss" />
+    
+    <ui:VisualElement name="MinimapContainer" class="minimap-container">
         
-        <ui:VisualElement name="MinimapFrame" style="width: 150px; height: 150px; background-color: rgba(0,0,0,0.5); border-radius: 75px; border-color: white; border-width: 2px;">
-        </ui:VisualElement>
+        <ui:VisualElement name="MinimapFrame" class="minimap-frame" />
 
-        <ui:Label name="CoordsText" text="124, 50" style="
-            margin-top: 5px;
-            color: rgba(255, 255, 255, 0.6); /* Lekko przezroczysty biały */
-            font-size: 10px;
-            -unity-font-style: bold;
-            -unity-text-align: upper-center;
-            text-shadow: 1px 1px 0px rgba(0,0,0,1);" 
-        />
+        <ui:Label name="CoordsText" text="124, 50" class="coords-text" />
 
     </ui:VisualElement>
 

@@ -1,35 +1,12 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    
+    <ui:Style src="Inventory.uss" />
 
-    <ui:VisualElement name="InventoryWindow" picking-mode="Position" style="
-        width: 300px;
-        height: 300px;
-        background-color: rgba(0, 0, 0, 0.9);
-        border-radius: 10px;
-        border-width: 2px;
-        border-color: white;
-        position: absolute;  
-        left: 500px;   /* Startowa pozycja X */
-        top: 200px;    /* Startowa pozycja Y */
-        display: none;">
+    <ui:VisualElement name="InventoryWindow" class="inventory-window" picking-mode="Position">
         
-        <ui:Label text="EKWIPUNEK" style="
-            color: white; 
-            -unity-font-style: bold; 
-            align-self: center; 
-            margin-top: 10px;" 
-        />
+        <ui:Label text="EKWIPUNEK" class="inventory-header" />
 
-        <ui:Button name="CloseButton" text="X" style="
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            width: 30px;
-            height: 30px;
-            background-color: #ef4444;
-            color: white;
-            -unity-font-style: bold;
-            border-radius: 5px;" 
-        />
+        <ui:Button name="CloseButton" text="X" class="inventory-close-btn" />
 
     </ui:VisualElement>
 
