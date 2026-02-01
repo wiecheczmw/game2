@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="PlayerFrame.uss" />
-
+    <ui:Style src="project://database/Assets/UI/Global/Theme.uss" />
+    
     <ui:VisualElement name="PlayerFrame" class="player-frame" picking-mode="Position">
         
         <ui:VisualElement class="avatar-container">

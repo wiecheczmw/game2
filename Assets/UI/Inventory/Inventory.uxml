@@ -1,13 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    
     <ui:Style src="Inventory.uss" />
-
+    <ui:Style src="project://database/Assets/UI/Global/Theme.uss" />
+    
     <ui:VisualElement name="InventoryWindow" class="inventory-window" picking-mode="Position">
         
-        <ui:Label text="EKWIPUNEK" class="inventory-header" />
+        <ui:VisualElement name="Header" class="inventory-header">
+            <ui:Label text="EKWIPUNEK" class="header-title" picking-mode="Ignore"/>
+            <ui:Button name="CloseButton" text="X" class="close-btn" />
+        </ui:VisualElement>
 
-        <ui:Button name="CloseButton" text="X" class="inventory-close-btn" />
+        <ui:ScrollView mode="Vertical" class="inventory-scroll">
+            <ui:VisualElement name="SlotsContainer" class="slots-grid" />
+        </ui:ScrollView>
 
     </ui:VisualElement>
-
 </ui:UXML>

@@ -31,7 +31,7 @@
         />
     </ui:VisualElement>
     
-    <ui:VisualElement name="Windows_Layer" picking-mode="Ignore" style="position: absolute; width: 100%; height: 100%; justify-content: center;">     
+    <ui:VisualElement name="Inventory" picking-mode="Ignore" style="position: absolute; width: 100%; height: 100%; justify-content: center;">     
         <ui:Instance template="Inventory" name="InventoryInstance" />
     </ui:VisualElement>
     

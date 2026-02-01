@@ -1,47 +1,135 @@
-/* Główny kontener okna */
+/* Inventory.uss */
+
+/* IMPORTUJEMY MOTYW */
+/* Ścieżka zależy od folderu, np. project://database/Assets/UI/Theme.uss */
+/* Ale jeśli są w tym samym folderze, wystarczy nazwa: */
+
+
+/* --- GŁÓWNE OKNO --- */
 .inventory-window {
-    width: 300px;
-    height: 300px;
-    background-color: rgba(0, 0, 0, 0.9);
-    border-radius: 10px;
-    border-width: 2px;
-    border-color: white;
-
-    /* Pozycjonowanie */
     position: absolute;
-    left: 500px;
-    top: 200px;
+    top: 100px;
+    left: 100px;
 
-    /* Domyślnie ukryte */
+    /* Użycie zmiennych z Theme.uss */
+    background-color: var(--color-window-bg);
+    border-width: 1px;
+    border-color: var(--color-border);
+    border-radius: var(--radius-window);
+
+    width: 250px; /* Szerokość dla wersji Compact */
+    padding: 6px;
     display: none;
 }
 
-/* Nagłówek "EKWIPUNEK" */
+/* --- NAGŁÓWEK --- */
 .inventory-header {
-    color: white;
-    -unity-font-style: bold;
-    align-self: center;
-    margin-top: 10px;
-    font-size: 16px; /* Opcjonalnie: określenie wielkości */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 28px;
+
+    background-color: transparent;
+    border-bottom-width: 0px;
+
+    margin-bottom: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
+
+    cursor: pan; /* Kursor sugerujący przesuwanie */
 }
 
-/* Przycisk zamknięcia */
-.inventory-close-btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 30px;
-    height: 30px;
-
-    background-color: #ef4444; /* Czerwony */
-    color: white;
+.header-title {
+    color: var(--color-text-dim);
+    font-size: 12px;
     -unity-font-style: bold;
-    border-radius: 5px;
-    border-width: 0px; /* Unity domyślnie dodaje border przyciskom, tu go zerujemy */
+    letter-spacing: 1px;
 }
 
-/* Stan po najechaniu myszką na przycisk (opcjonalne) */
-.inventory-close-btn:hover {
-    background-color: #dc2626; /* Ciemniejszy czerwony */
-    cursor: link; /* Zmienia kursor */
+/* --- PRZYCISK ZAMKNIĘCIA (X) --- */
+.close-btn {
+    width: 20px;
+    height: 20px;
+
+    background-color: transparent;
+    border-width: 0px;
+
+    color: var(--color-text-muted);
+    font-size: 12px;
+    -unity-font-style: bold;
+    border-radius: 4px;
+    transition: 0.1s;
+    padding: 0;
+}
+
+.close-btn:hover {
+    background-color: var(--color-border);
+    color: var(--color-white);
+}
+
+/* --- SCROLL VIEW (Kontener przewijania) --- */
+.inventory-scroll {
+    /* Slot (48px) + Marginesy (8px) = 56px.
+       4 rzędy * 56px = 224px.
+    */
+    height: 224px;
+}
+
+/* --- Pasek przewijania (Scrollbar) --- */
+/* Ukrycie domyślnego tła paska */
+.unity-scroller {
+    width: 6px;
+    margin-left: 2px;
+    background-color: transparent;
+    border: none;
+}
+
+/* Ukrycie strzałek góra/dół */
+.unity-scroller__low-button,
+.unity-scroller__high-button {
+    display: none;
+}
+
+/* Tło suwaka (niewidoczne) */
+.unity-base-slider__tracker {
+    background-color: transparent;
+    border-width: 0;
+}
+
+/* Uchwyt suwaka (dragger) */
+.unity-base-slider__dragger {
+    background-color: var(--color-border); /* Używamy koloru ramki dla subtelności */
+    border-radius: 3px;
+    width: 4px;
+    left: 1px;
+    border-width: 0;
+}
+
+.unity-base-slider__dragger:hover {
+    background-color: var(--color-text-muted); /* Jaśniejszy po najechaniu */
+}
+
+/* --- GRID I SLOTY --- */
+.slots-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.slot {
+    width: 48px;  /* Wymiary zostawiamy sztywne w pikselach dla układu */
+    height: 48px;
+    margin: 4px;
+
+    background-color: var(--color-slot-bg);
+    border-radius: var(--radius-slot);
+
+    border-width: 0px;
+}
+
+.slot:hover {
+    background-color: var(--color-slot-hover);
+    /* Opcjonalnie: jeśli chcesz ramkę po najechaniu */
+    /* border-width: 1px; */
+    /* border-color: var(--color-border); */
 }

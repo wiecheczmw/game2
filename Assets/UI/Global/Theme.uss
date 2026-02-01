@@ -1,0 +1,50 @@
+/* Theme.uss */
+:root {
+    /* --- KOLORY --- */
+    --color-window-bg: rgba(20, 20, 20, 0.95);
+    --color-slot-bg: rgba(255, 255, 255, 0.05);
+    --color-slot-hover: rgba(255, 255, 255, 0.15);
+
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-text-dim: rgba(255, 255, 255, 0.7);
+    --color-text-muted: rgba(255, 255, 255, 0.5);
+    --color-white: #ffffff;
+
+    /* --- WYMIARY I PROMIENIE (Opcjonalnie) --- */
+    --radius-window: 8px;
+    --radius-slot: 6px;
+    --spacing-small: 4px;
+
+
+    /* Health (Czerwony) */
+    --color-hp-main: #ef4444;  /* Kolor paska */
+    --color-hp-text: #f87171;  /* Kolor tekstu */
+
+    /* Mana/Stamina (Niebieski/Cyan) */
+    --color-sp-main: #0ea5e9;
+    --color-sp-text: #38bdf8;
+
+    /* Experience (Zielony) */
+    --color-exp-main: #22c55e;
+    --color-exp-text: #4ade80;
+
+
+}
+.common-slot {
+    background-color: var(--color-slot-bg);
+    border-radius: var(--radius-slot);
+    border-width: 0px;
+    border-color: var(--color-border);
+
+    /* Wyśrodkowanie ikony w środku */
+    align-items: center;
+    justify-content: center;
+
+    transition-duration: 0.1s;
+}
+
+.common-slot:hover {
+    background-color: var(--color-slot-hover);
+    /* Opcjonalnie: subtelna ramka przy najechaniu */
+    border-width: 1px;
+}

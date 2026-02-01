@@ -1,6 +1,69 @@
+<!--<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">-->
+<!--    -->
+<!--    <ui:Style src="ActionBar.uss" />-->
+<!--    <ui:VisualElement name="ActionBarComponent" style="width: 400px; height: 60px; background-color: rgba(0, 255, 0, 0.5); border-width: 2px; border-color: white; justify-content: center; align-items: center;">-->
+<!--        <ui:Label text="ACTION BAR" style="color: white; -unity-font-style: bold;"/>-->
+<!--        <ui:Button text="Button" name="button1"/>-->
+<!--    </ui:VisualElement>-->
+<!--</ui:UXML>-->
+
+
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement name="ActionBarComponent" style="width: 400px; height: 60px; background-color: rgba(0, 255, 0, 0.5); border-width: 2px; border-color: white; justify-content: center; align-items: center;">
-        <ui:Label text="ACTION BAR" style="color: white; -unity-font-style: bold;"/>
-        <ui:Button text="Button" name="button1"/>
+    
+    <ui:Style src="project://database/Assets/UI/Global/Theme.uss" /> 
+    <ui:Style src="ActionBar.uss" />
+
+    <ui:VisualElement name="ActionBar" class="action-bar-frame">
+        
+        <ui:VisualElement name="Slot_1" class="common-slot action-slot">
+            <ui:Label text="1" class="hotkey-label" />
+            <ui:VisualElement name="Icon" class="slot-icon" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="Slot_2" class="common-slot action-slot">
+            <ui:Label text="2" class="hotkey-label" />
+            <ui:VisualElement name="Icon" class="slot-icon" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="Slot_3" class="common-slot action-slot">
+            <ui:Label text="3" class="hotkey-label" />
+            <ui:VisualElement name="Icon" class="slot-icon" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="Slot_4" class="common-slot action-slot">
+            <ui:Label text="4" class="hotkey-label" />
+            <ui:VisualElement name="Icon" class="slot-icon" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="Slot_5" class="common-slot action-slot">
+            <ui:Label text="5" class="hotkey-label" />
+            <ui:VisualElement name="Icon" class="slot-icon" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="Slot_6" class="common-slot action-slot">
+            <ui:Label text="6" class="hotkey-label" />
+            <ui:VisualElement name="Icon" class="slot-icon" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="Slot_7" class="common-slot action-slot">
+            <ui:Label text="7" class="hotkey-label" />
+            <ui:VisualElement name="Icon" class="slot-icon" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="Slot_8" class="common-slot action-slot">
+            <ui:Label text="8" class="hotkey-label" />
+            <ui:VisualElement name="Icon" class="slot-icon" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="Slot_9" class="common-slot action-slot">
+            <ui:Label text="9" class="hotkey-label" />
+            <ui:VisualElement name="Icon" class="slot-icon" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="Slot_0" class="common-slot action-slot">
+            <ui:Label text="0" class="hotkey-label" />
+            <ui:VisualElement name="Icon" class="slot-icon" />
+        </ui:VisualElement>
+
     </ui:VisualElement>
 </ui:UXML>

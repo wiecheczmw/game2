@@ -3,91 +3,95 @@ using UnityEngine.UIElements;
 
 public class InventoryController : MonoBehaviour
 {
-    
-    
     [SerializeField] private UIDocument uiDocument;
-
+    [SerializeField] private VisualTreeAsset slotTemplate; // Opcjonalnie: jeśli masz prefab slotu w UXML
 
     private VisualElement _inventoryWindow;
+    private VisualElement _header;
     private Button _closeButton;
+    private VisualElement _slotsContainer; // Nowe pole na kontener slotów
 
-    // Zmienne do obsługi przesuwania
+    // --- DRAG STATE ---
     private bool _isDragging = false;
     private Vector2 _startMousePosition;
     private Vector2 _startWindowPosition;
-
-    private void Awake()
+    private VisualElement _inventoryLayer;
+    private void OnEnable() // Zmieniam na OnEnable, często bezpieczniejsze dla UI niż Awake
     {
         var root = uiDocument.rootVisualElement;
+
+        // Jeśli masz wrapper "InventoryInstance", odkomentuj linię poniżej:
+        // var inventoryInstance = root.Q<VisualElement>("InventoryInstance");
+        // Jeśli nie, szukamy bezpośrednio w root (dla uproszczenia przykładu):
+        var container = root; 
         
-        var inventoryInstance = root.Q<VisualElement>("InventoryInstance");
-        Debug.Log(inventoryInstance);
-        if (inventoryInstance != null)
+        _inventoryLayer = root.Q<VisualElement>("Inventory");
+        _inventoryWindow = container.Q<VisualElement>("InventoryWindow");
+        _header = _inventoryWindow.Q<VisualElement>("Header"); // To będzie cały pasek nagłówka
+        _closeButton = _inventoryWindow.Q<Button>("CloseButton");
+        _slotsContainer = _inventoryWindow.Q<VisualElement>("SlotsContainer"); // Szukamy kontenera na sloty
+
+        // --- GENEROWANIE 48 SLOTÓW ---
+        if (_slotsContainer != null)
         {
-           
-            _inventoryWindow = inventoryInstance.Q<VisualElement>("InventoryWindow");
-            Debug.Log(_inventoryWindow);
-            _closeButton = inventoryInstance.Q<Button>("CloseButton");
-
-            // 1. Rejestracja przycisku zamknij
-            if (_closeButton != null)
+            _slotsContainer.Clear(); // Czyścimy na wszelki wypadek
+            for (int i = 0; i < 48; i++)
             {
-                _closeButton.RegisterCallback<ClickEvent>(evt => CloseInventory());
+                VisualElement slot = new VisualElement();
+                slot.AddToClassList("slot"); // Klasa z USS
+                slot.name = $"Slot_{i}";
+                
+                // Opcjonalnie: tekst dla debugu
+                // slot.Add(new Label($"{i+1}")); 
+                
+                _slotsContainer.Add(slot);
             }
+        }
 
-            // 2. Rejestracja przesuwania (Drag & Drop)
-            if (_inventoryWindow != null)
-            {
-                // Ważne: Rejestrujemy zdarzenia na oknie, które chcemy przesuwać
-                _inventoryWindow.RegisterCallback<PointerDownEvent>(OnPointerDown);
-                _inventoryWindow.RegisterCallback<PointerMoveEvent>(OnPointerMove);
-                _inventoryWindow.RegisterCallback<PointerUpEvent>(OnPointerUp);
-            }
+        // --- OBSŁUGA ZDARZEŃ ---
+        if (_closeButton != null)
+            _closeButton.RegisterCallback<ClickEvent>(_ => CloseInventory());
+
+        if (_header != null)
+        {
+            _header.RegisterCallback<PointerDownEvent>(OnPointerDown);
+            _header.RegisterCallback<PointerMoveEvent>(OnPointerMove);
+            _header.RegisterCallback<PointerUpEvent>(OnPointerUp);
         }
     }
 
-    // --- LOGIKA PRZESUWANIA (DRAG) ---
+    // ---------- LOGIKA PRZESUWANIA (Twoja, bez zmian) ----------
 
     private void OnPointerDown(PointerDownEvent evt)
     {
-        // Sprawdzamy, czy kliknięto lewym przyciskiem
         if (evt.button != 0) return;
-
+        if (_inventoryLayer != null)
+        {
+            _inventoryLayer.BringToFront();
+        }
         _isDragging = true;
-        
-        // Pobieramy startową pozycję myszki
         _startMousePosition = evt.position;
-        
-        // Pobieramy obecną pozycję okna (z layoutu)
+
         _startWindowPosition = new Vector2(
-            _inventoryWindow.resolvedStyle.left, 
+            _inventoryWindow.resolvedStyle.left,
             _inventoryWindow.resolvedStyle.top
         );
 
-        // KLUCZOWE: "Łapiemy" kursor. Dzięki temu, nawet jak wyjedziesz myszką poza okno,
-        // nadal będziesz je przesuwać, dopóki nie puścisz przycisku.
-        _inventoryWindow.CapturePointer(evt.pointerId);
-        
-        // Zatrzymujemy propagację, żeby nie klikać w rzeczy pod spodem
+        _header.CapturePointer(evt.pointerId);
         evt.StopPropagation();
     }
 
     private void OnPointerMove(PointerMoveEvent evt)
     {
         if (!_isDragging) return;
-        if (!_inventoryWindow.HasPointerCapture(evt.pointerId)) return;
+        if (!_header.HasPointerCapture(evt.pointerId)) return;
 
-        // Obliczamy różnicę (delta) ruchu myszki
         Vector2 currentMousePosition = evt.position;
         Vector2 delta = currentMousePosition - _startMousePosition;
 
-        // Obliczamy nową pozycję okna
-        float newLeft = _startWindowPosition.x + delta.x;
-        float newTop = _startWindowPosition.y + delta.y;
-
-        // Aktualizujemy style UI
-        _inventoryWindow.style.left = newLeft;
-        _inventoryWindow.style.top = newTop;
+        // Używamy style.left/top zamiast transform dla layoutu absolutnego
+        _inventoryWindow.style.left = _startWindowPosition.x + delta.x;
+        _inventoryWindow.style.top = _startWindowPosition.y + delta.y;
     }
 
     private void OnPointerUp(PointerUpEvent evt)
@@ -96,28 +100,13 @@ public class InventoryController : MonoBehaviour
         if (evt.button != 0) return;
 
         _isDragging = false;
-        
-        // Puszczamy kursor
-        _inventoryWindow.ReleasePointer(evt.pointerId);
+        _header.ReleasePointer(evt.pointerId);
         evt.StopPropagation();
     }
-
-    // --- LOGIKA OTWIERANIA/ZAMYKANIA (Bez zmian) ---
 
     public void CloseInventory()
     {
         if (_inventoryWindow != null)
-        {
             _inventoryWindow.style.display = DisplayStyle.None;
-        }
     }
-
-    // public void ToggleInventory()
-    // {
-    //     if (_inventoryWindow == null) return;
-    //     bool isVisible = _inventoryWindow.style.display == DisplayStyle.Flex;
-    //     
-    //     if (isVisible) CloseInventory();
-    //     else OpenInventory();
-    // }
 }

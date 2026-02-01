@@ -246,21 +246,41 @@ public class InputManager : Manager
     // --- Reszta bez zmian ---
     private void StartZoom(InputAction.CallbackContext context)
     {
+        if (IsPointerOverUI())
+        {
+            // Debug.Log("Zablokowano ruch - kursor nad UI");
+            return;
+        }
         OnZoom?.Invoke(context.ReadValue<Vector2>().y);
     }
 
     private void StopZoom(InputAction.CallbackContext context)
     {
+        if (IsPointerOverUI())
+        {
+            // Debug.Log("Zablokowano ruch - kursor nad UI");
+            return;
+        }
         OnZoom?.Invoke(0);
     }
 
     private void Orbit(InputAction.CallbackContext context)
     {
+        if (IsPointerOverUI())
+        {
+            // Debug.Log("Zablokowano ruch - kursor nad UI");
+            return;
+        }
         OnOrbit?.Invoke(context.ReadValue<Vector2>().x);
     }
 
     private void StopOrbit(InputAction.CallbackContext context)
     {
+        if (IsPointerOverUI())
+        {
+            // Debug.Log("Zablokowano ruch - kursor nad UI");
+            return;
+        }
         OnOrbit?.Invoke(0f);
     }
 }

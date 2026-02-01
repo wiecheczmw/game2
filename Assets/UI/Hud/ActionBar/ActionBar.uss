@@ -1,1 +1,62 @@
-VisualElement {}
+/* --- GŁÓWNY KONTENER PASKA --- */
+.action-bar-frame {
+    /* Układ poziomy */
+    flex-direction: row;
+
+    /* Wygląd "szkła" zgodny z Theme */
+    background-color: var(--color-window-bg);
+    border-width: 1px;
+    border-color: var(--color-border);
+    border-radius: var(--radius-window);
+
+    /* Dopasowanie do zawartości */
+    padding: 6px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- SLOT AKCJI --- */
+/* Dziedziczy wygląd z .common-slot (z Theme), tu ustalamy tylko wymiary i marginesy */
+.action-slot {
+    width: 50px;
+    height: 50px;
+    margin-left: 3px;
+    margin-right: 3px;
+
+    /* Pozycjonowanie relatywne, żeby numer skrótu mógł być absolutny w rogu */
+    position: relative;
+}
+
+/* Ikona w środku (np. Skill) */
+.slot-icon {
+    width: 90%;
+    height: 90%;
+    /* Domyślnie ukryta lub przezroczysta, dopóki skrypt nie wstawi obrazka */
+    /* background-image: ... */
+}
+
+/* --- NUMEREK SKRÓTU (1, 2, 3...) --- */
+.hotkey-label {
+    position: absolute;
+    top: 0px;
+    left: 2px;
+
+    color: var(--color-text-muted); /* Przygaszony kolor */
+    font-size: 10px;
+    -unity-font-style: bold;
+
+    /* Reset marginesów unity */
+    margin: 0;
+    padding: 0;
+
+    /* Cień dla czytelności na jasnych ikonach */
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
+}
+
+/* --- EFEKT ACTIVE (Gdy gracz wciska klawisz) --- */
+/* Możesz to togglować w C# dodając klasę .slot-pressed */
+.action-slot:active, .slot-pressed {
+    border-color: var(--color-white);
+    background-color: var(--color-border);
+    scale: 0.95; /* Lekkie wciśnięcie */
+}

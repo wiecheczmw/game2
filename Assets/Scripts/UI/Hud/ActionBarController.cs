@@ -10,7 +10,7 @@ public class ActionBarController : MonoBehaviour
     private void Awake()
     {
       
-     uiDocument.rootVisualElement.Q<Button>("button1").clicked += addtestmovespeed;
+//     uiDocument.rootVisualElement.Q<Button>("button1").clicked += addtestmovespeed;
     }
 
     private void addtestmovespeed()

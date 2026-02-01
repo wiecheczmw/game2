@@ -1,13 +1,90 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     
     <ui:Style src="PlayerInfo.uss" />
-
-    <ui:VisualElement name="PlayerInfoWindow" class="PlayerInfo-window" picking-mode="Position">
+    <ui:Style src="project://database/Assets/UI/Global/Theme.uss" />
+    
+    <ui:VisualElement name="PlayerInfoWindow" class="player-info-window" picking-mode="Position">
         
-        <ui:Label text="Player Info" class="PlayerInfo-header" />
+        <ui:VisualElement name="Header" class="player-info-header">
+            
+            <ui:Label text="PLAYER INFORMATION" class="header-title" picking-mode="Ignore"/>
+            
+            <ui:Button name="CloseButton" text="X" class="close-btn" />
+        </ui:VisualElement>
 
-        <ui:Button name="CloseButton" text="X" class="PlayerInfo-close-btn" />
+        <ui:ScrollView class="content-scroll">
+            
+            <ui:VisualElement class="top-section">
+
+                <ui:VisualElement class="info-grid">
+                    <ui:VisualElement class="info-row"><ui:Label text="Name:" class="label-muted"/><ui:Label text="Dragonslayer" class="label-bright"/></ui:VisualElement>
+                    <ui:VisualElement class="info-row"><ui:Label text="Class:" class="label-muted"/><ui:Label text="Newbie" class="label-bright"/></ui:VisualElement>
+                    <ui:VisualElement class="info-row"><ui:Label text="Guild:" class="label-muted"/><ui:Label text="-" class="label-bright"/></ui:VisualElement>
+                    <ui:VisualElement class="spacer-xs" />
+                    <ui:VisualElement class="info-row"><ui:Label text="HP" class="label-hp"/><ui:Label text="100/100" class="label-bright"/></ui:VisualElement>
+                    <ui:VisualElement class="info-row"><ui:Label text="SP" class="label-sp"/><ui:Label text="23/23" class="label-bright"/></ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:Label text="Base Attributes" class="section-header" />
+            
+            <ui:VisualElement class="base-stats-grid">
+                <ui:VisualElement class="stat-box">
+                    <ui:Label text="STR" class="stat-label"/>
+                    <ui:Button text="+" class="btn-plus"/>
+                    <ui:Label text="5" class="stat-value"/>
+                </ui:VisualElement>
+                
+                <ui:VisualElement class="stat-box">
+                    <ui:Label text="AGI" class="stat-label"/>
+                    <ui:Button text="+" class="btn-plus"/>
+                    <ui:Label text="5" class="stat-value"/>
+                </ui:VisualElement>
+
+                <ui:VisualElement class="stat-box">
+                    <ui:Label text="CON" class="stat-label"/>
+                    <ui:Button text="+" class="btn-plus"/>
+                    <ui:Label text="5" class="stat-value"/>
+                </ui:VisualElement>
+
+                <ui:VisualElement class="stat-box">
+                    <ui:Label text="SPR" class="stat-label"/>
+                    <ui:Button text="+" class="btn-plus"/>
+                    <ui:Label text="5" class="stat-value"/>
+                </ui:VisualElement>
+                 <ui:VisualElement class="stat-box">
+                    <ui:Label text="ACC" class="stat-label"/>
+                    <ui:Button text="+" class="btn-plus"/>
+                    <ui:Label text="5" class="stat-value"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:Label text="Attributes" class="section-header" />
+            
+            <ui:VisualElement class="details-container">
+                <ui:VisualElement class="details-column">
+                    <ui:VisualElement class="detail-row"><ui:Label text="Min Att" class="label-muted"/><ui:Label text="33" class="label-bright"/></ui:VisualElement>
+                    <ui:VisualElement class="detail-row"><ui:Label text="Hit Rate" class="label-muted"/><ui:Label text="15" class="label-bright"/></ui:VisualElement>
+                    <ui:VisualElement class="detail-row"><ui:Label text="Defense" class="label-muted"/><ui:Label text="8" class="label-bright"/></ui:VisualElement>
+                    <ui:VisualElement class="detail-row"><ui:Label text="Phy. Resist" class="label-muted"/><ui:Label text="1" class="label-bright"/></ui:VisualElement>
+                </ui:VisualElement>
+                
+                <ui:VisualElement class="details-column">
+                    <ui:VisualElement class="detail-row"><ui:Label text="Max Att" class="label-muted"/><ui:Label text="37" class="label-bright"/></ui:VisualElement>
+                    <ui:VisualElement class="detail-row"><ui:Label text="Dodge" class="label-muted"/><ui:Label text="11" class="label-bright"/></ui:VisualElement>
+                    <ui:VisualElement class="detail-row"><ui:Label text="At Speed" class="label-muted"/><ui:Label text="70" class="label-bright"/></ui:VisualElement>
+                    <ui:VisualElement class="detail-row"><ui:Label text="Mov. Speed" class="label-muted"/><ui:Label text="590" class="label-bright"/></ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:Label text="Others" class="section-header" />
+            
+            <ui:VisualElement class="footer-row">
+                <ui:Label text="Skill Pts: 0" class="footer-text"/>
+                <ui:Label text="Stats Pts: 4" class="footer-text highlight"/>
+            </ui:VisualElement>
+
+        </ui:ScrollView>
 
     </ui:VisualElement>
-
 </ui:UXML>

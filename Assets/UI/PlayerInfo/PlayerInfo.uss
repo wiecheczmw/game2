@@ -1,47 +1,265 @@
-/* Główny kontener okna */
-.PlayerInfo-window {
-    width: 300px;
-    height: 300px;
-    background-color: rgba(0, 0, 0, 0.9);
-    border-radius: 10px;
-    border-width: 2px;
-    border-color: white;
+@import url("project://database/Assets/Scripts/UI/Global/Theme.uss");
 
-    /* Pozycjonowanie */
+/* --- GŁÓWNE OKNO --- */
+.player-info-window {
     position: absolute;
-    left: 500px;
-    top: 200px;
+    top: 50px;
+    left: 50px;
+    width: 280px; /* Szerokość dobrana pod layout */
+    height: 500px; /* Dość wysokie, bo dużo statystyk */
 
-    /* Domyślnie ukryte */
+    /* THEME VARIABLES */
+    background-color: var(--color-window-bg);
+    border-color: var(--color-border);
+    border-width: 1px;
+    border-radius: var(--radius-window);
+
+    padding: 8px;
+    padding-top: 4px;
     display: none;
 }
 
-/* Nagłówek "EKWIPUNEK" */
-.PlayerInfo-header {
-    color: white;
-    -unity-font-style: bold;
-    align-self: center;
-    margin-top: 10px;
-    font-size: 16px; /* Opcjonalnie: określenie wielkości */
-}
-
-/* Przycisk zamknięcia */
-.PlayerInfo-close-btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 30px;
+/* --- NAGŁÓWEK --- */
+.player-info-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     height: 30px;
+    margin-bottom: 5px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(255,255,255,0.05); /* Bardzo subtelna linia */
+    cursor: pan;
+}
 
-    background-color: #ef4444; /* Czerwony */
-    color: white;
+.close-btn {
+    width: 20px;
+    height: 20px;
+
+    background-color: transparent;
+    border-width: 0px;
+
+    color: var(--color-text-muted);
+    font-size: 12px;
     -unity-font-style: bold;
-    border-radius: 5px;
-    border-width: 0px; /* Unity domyślnie dodaje border przyciskom, tu go zerujemy */
+    border-radius: 4px;
+    transition: 0.1s;
+    padding: 0;
+}
+.header-title {
+    color: var(--color-text-dim);
+    font-size: 13px;
+    -unity-font-style: bold;
+    letter-spacing: 1px;
 }
 
-/* Stan po najechaniu myszką na przycisk (opcjonalne) */
-.PlayerInfo-close-btn:hover {
-    background-color: #dc2626; /* Ciemniejszy czerwony */
-    cursor: link; /* Zmienia kursor */
+/* --- SEKCJA GÓRNA (AVATAR) --- */
+.top-section {
+    flex-direction: row;
+    margin-bottom: 10px;
 }
+
+.avatar-container {
+    width: 80px;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.avatar-frame {
+    width: 70px;
+    height: 70px;
+    background-color: var(--color-slot-bg);
+    border-radius: var(--radius-slot);
+    border-width: 1px;
+    border-color: var(--color-border);
+    margin-bottom: -10px; /* Level badge nachodzi na ramkę */
+}
+
+.avatar-placeholder {
+    width: 100%; height: 100%;
+    /* Tu możesz nadać background-image w C# */
+}
+
+.level-badge {
+    background-color: rgba(0,0,0,0.8);
+    color: var(--color-white);
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    -unity-font-style: bold;
+    border-width: 1px;
+    border-color: var(--color-border);
+}
+
+/* --- INFO GRID (Klasa, HP, SP) --- */
+.info-grid {
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.info-row {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.spacer-xs { height: 2px; }
+
+/* Typografia */.label-muted {
+                    color: var(--color-text-muted);
+                    font-size: 11px;
+
+                    /* ZEROWANIE DOMYŚLNYCH ODSTĘPÓW UNITY */
+                    margin: 0;
+                    padding: 0;
+                }
+
+.label-bright {
+    color: var(--color-white);
+    font-size: 11px;
+    -unity-font-style: bold;
+
+    /* ZEROWANIE DOMYŚLNYCH ODSTĘPÓW UNITY */
+    margin: 0;
+    padding: 0;
+}
+
+/* Używamy zmiennych HP/SP z Theme.uss */
+.label-hp {
+    color: var(--color-hp-text);
+    font-size: 11px;
+    -unity-font-style: bold;
+
+    /* ZEROWANIE DOMYŚLNYCH ODSTĘPÓW UNITY */
+    margin: 0;
+    padding: 0;
+}
+
+.label-sp {
+    color: var(--color-sp-text);
+    font-size: 11px;
+    -unity-font-style: bold;
+
+    /* ZEROWANIE DOMYŚLNYCH ODSTĘPÓW UNITY */
+    margin: 0;
+    padding: 0;
+}
+/* --- PASEK IMIENIA --- */
+.name-bar {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 2px 0;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(255,255,255,0.05);
+}
+
+.name-text {
+    color: var(--color-white);
+    -unity-font-style: bold;
+    font-size: 13px;
+    margin-right: 8px;
+}
+
+.exp-line-container {
+    flex-grow: 1;
+    height: 2px;
+    background-color: rgba(255,255,255,0.1);
+    margin-top: 2px; /* Wyrównanie optyczne */
+}
+
+.exp-line-fill {
+    height: 100%;
+    background-color: var(--color-exp-main);
+}
+
+.exp-percent {
+    color: var(--color-text-muted);
+    font-size: 10px;
+    margin-left: 6px;
+}
+
+/* --- BELKI SEKCJI ("Base Attributes") --- */
+.section-header {
+    background-color: rgba(255,255,255,0.03); /* Bardzo lekki pasek tła */
+    color: var(--color-text-dim);
+    font-size: 11px;
+    -unity-text-align: middle-center;
+    padding: 4px;
+    border-radius: 4px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border-width: 1px;
+    border-color: rgba(255,255,255,0.02);
+}
+
+/* --- GRID STATYSTYK Z PLUSEM --- */
+.base-stats-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.stat-box {
+    width: 48%; /* Dwie kolumny */
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(255,255,255,0.02);
+    border-radius: 4px;
+    margin-bottom: 4px;
+    padding: 3px 5px;
+}
+
+.stat-label { flex-grow: 1; color: var(--color-text-muted); font-size: 11px; }
+.stat-value { color: var(--color-white); font-size: 11px; min-width: 15px; -unity-text-align: middle-right; -unity-font-style: bold;}
+
+/* Minimalistyczny guzik Plus */
+.btn-plus {
+    width: 14px; height: 14px;
+    padding: 0;
+    margin-right: 5px;
+    background-color: var(--color-slot-bg);
+    border-width: 0;
+    border-radius: 2px;
+    color: var(--color-text-dim);
+    font-size: 10px;
+    -unity-text-align: middle-center;
+}
+.btn-plus:hover { background-color: var(--color-border); color: white; }
+
+/* --- SZCZEGÓŁY (Attributes) --- */
+.details-container {
+    flex-direction: row;
+}
+
+.details-column {
+    width: 50%;
+    padding-right: 5px;
+}
+
+.detail-row {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+/* --- FOOTER --- */
+.footer-row {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 4px;
+    margin-top: 2px;
+}
+
+.footer-text {
+    font-size: 10px;
+    color: var(--color-text-muted);
+}
+
+.highlight { color: #facc15; } /* Żółty kolor dla punktów statystyk */
+
+/* SCROLLBAR FIX (Ukrycie brzydkiego paska) */
+.content-scroll { flex-grow: 1; }
+.unity-scroller { width: 4px; background-color: transparent; border: none;}
+.unity-scroller__low-button, .unity-scroller__high-button { display: none; }
+.unity-base-slider__dragger { background-color: var(--color-border); border-radius: 2px; width: 4px; }
+
